@@ -15,7 +15,7 @@ window.addEventListener('DOMContentLoaded', event => {
     const $clientCheckingStatus = document.querySelector('#checking')
     const $clientWaitingStatus = document.querySelector('#waiting')
     const $clientConnectedStatus = document.querySelector('#connected')
-
+    const $listButton = document.querySelector('#listButton')
     // --------------Forms---------------
 
     $guestPhone.addEventListener('input', event => {
@@ -83,10 +83,12 @@ window.addEventListener('DOMContentLoaded', event => {
                 $clientConnectedStatus.classList.remove('hidden')
                 $clientWaitingStatus.classList.add('hidden')
                 $clientCheckingStatus.classList.add('hidden')
+                $listButton.classList.remove('hidden')
             }else{
                 $clientWaitingStatus.classList.remove('hidden')
                 $clientConnectedStatus.classList.add('hidden')
                 $clientCheckingStatus.classList.add('hidden')
+                $listButton.classList.add('hidden')
             }
             for (let key in data) console.log(`${key}: ${data[key]}`)
         })
