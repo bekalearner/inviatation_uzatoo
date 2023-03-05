@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Marmelad&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Список гостей</title>
+</head>
+<body class="invitation__form flex flex-col h-screen w-full justify-center items-center">
+    <div class="qr w-64 h-64"></div>
+    <a href="/generator" class="my-5 p-3 bg-green-600 text-white rounded-sm active:bg-green-800 hidden" id="generatorLink">Войти в программу</a>
+    <script>
+        const $qrcode = document.querySelector('.qr')
+        const $generatorLink = document.querySelector('#generatorLink')
+
+        for (let i = 0; i < 1; i++) {
+            const password = prompt('Введите пороль чтобы продолжить', '')
+            if (password != 'Bektur6519' || password == null || password == ''){
+                i--
+            }
+        }
+
+        const getQR = async () => {
+
+            await fetch('/api/qrcode')
+            .then(response => {
+                return response.json()
+            })
+            .then(data => {
+                $qrcode.innerHTML = data.qrcode;
+                (data.status === true) ? $generatorLink.classList.remove('hidden') : $generatorLink.classList.add('hidden')
+            })
+
+        }
+        getQR()
+        setInterval(() => {
+            getQR()
+        }, 1000)
+    </script>
+</body>
+</html>

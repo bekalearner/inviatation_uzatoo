@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Invitation Sender</title>
+</head>
+<body>
+    <div class="message__status fixed h-32 w-full flex flex-col justify-center items-center">
+        <div class="bg-sky-300 rounded hidden" id="sending"><p class="text-center py-5 px-4 text-sm text-sky-800">Идет отправка ...</p></div>
+        <div class="bg-green-300 rounded hidden" id="success"><p class="text-center py-5 px-4 text-sm text-green-800">Успешно отправлено ✓</p></div>
+        <div class="bg-red-300 rounded hidden" id="error"><p class="text-center py-5 px-4 text-sm text-red-800">Введен несущевствующий номер ☹</p></div>
+        <div class="message_sent bg-amber-300 rounded hidden" id="warning"><p class="text-center py-5 px-4 text-sm text-amber-800">Гость уже был приглашен ☺</p></div>
+    </div>
+    <!-- Sending form -->
+    <div class="invitation__form flex flex-col h-screen w-full justify-center items-center">
+        <h2 class="text-2xl md:text-4xl">Генератор пригласительных</h2>
+        <form class="flex flex-col justify-center md:w-1/2 xl:w-1/3 p-10" id="guestForm">
+            <input class="border-2 border-gray-600 focus:border-green-600 outline-none rounded-sm p-2 mb-4" type="text" id="guestName" placeholder="Полное имя гостя">
+            <input class="border-2 border-gray-600 focus:border-green-600 outline-none rounded-sm p-2 mb-4" type="text" id="guestNumber" value="+996" maxlength="20">
+            <div class="pronoun flex justify-center mb-3">
+                <label for="male">Мужчина</label>
+                <input class="accent-green-600 mx-5 pronounCheckbox" type="checkbox" name="he" value="he" checked="true">
+                <label for="female">Женщина</label>
+                <input class="accent-green-600 mx-5 pronounCheckbox" type="checkbox" name="she" value="she">
+                <label for="female">Пара</label>
+                <input class="accent-green-600 mx-5 pronounCheckbox" type="checkbox" name="they" value="they">
+            </div>
+            <div class="lang flex justify-center mb-3">
+                <label for="ru">Русский</label>
+                <input class="accent-green-600 mx-5 langCheckbox" type="checkbox" name="ru" value="ru" checked="true">
+                <label for="kg">Кыргызча</label>
+                <input class="accent-green-600 mx-5 langCheckbox" type="checkbox" name="kg" value="kg">
+            </div>
+            <button class="p-2 bg-green-600 text-white rounded-sm active:bg-green-800" id="sendButton">Отправить</button>
+            <a href="/list" class="my-4 p-2 text-center bg-white text-green-600 rounded-sm active:bg-gray-200 ring-2 ring-green-600 active:ring-green-800" id="sendButton">Список гостей</a>
+            <div class="status flex flex-col justify-center">
+                <div class="bg-sky-300 rounded" id="checking"><p class="flex justify-center items-center py-5 px-4 text text-sky-800">Проверка статуса ...</p></div>
+                <div class="bg-amber-300 rounded hidden" id="waiting"><p class="flex justify-center items-center flex-wrap py-5 px-4 text text-amber-800">Статус: Ватсап ждет подключения<a href="/qrcode" class="mt-4 md:ml-6 md:my-0 p-2 bg-amber-600 text-white rounded active:bg-amber-800">Подключить ватсап</a></p></div>
+                <div class="bg-green-300 rounded hidden" id="connected"><p class="flex justify-center items-center py-5 px-4 text text-green-800">Статус: Готово к работе ✓</p></div>
+            </div>
+        </form>
+    </div>
+    
+    <script src="/js/script.js"></script>
+</body>
+</html>

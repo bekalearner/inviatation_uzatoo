@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ky">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Marmelad&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <title><%= invitation.name%></title>
+</head>
+<body>
+    <!-- Invitation -->
+    <div class="invitation flex min-h-screen md:h-screen w-full justify-center md:items-center bg-white md:bg-invitation-background bg-cover">
+        <div class="invitation-content flex flex-col md:w-10/12 lg:w-8/12 xl:w-7/12 2xl:w-6/12 text-center justify-center items-center pt-4 pb-6 bg-invitation-pattern bg-cover bg-center">
+            <img class="w-40 py-4" src="/images/name.svg" alt="author">
+            <h2 class="invitation_title text-2xl uppercase font-display pb-2 px-4 text-rose-900">Урматтуу <%=invitation.name%></h2>
+            <p class="invitation_text w-2/3 font-display  uppercase pb-2 text-rose-900"><%= (invitation.pronoun == 'they') ? 'Сиздерди' : 'Cизди'%> кызыбыз </p>
+            <h2 class="invitation_title text-2xl uppercase font-display pb-6 px-4 text-rose-900">Милананын “кыз узатуу”</h2>
+            <p class="invitation_text w-2/3 font-display  uppercase pb-6 text-rose-900">аземине арналган салтанатка келип, кадырлуу коногубуз болуп кетүүгө чакырабыз</p>
+            <img class="hidden md:block" src="/images/date_kg.svg" alt="date">
+            <h2 class="invitation_title text-2xl uppercase font-display pb-2 text-rose-900 md:hidden">Март 19 | 2023</h2>
+            <p class="invitation_text font-display uppercase pb-5 text-rose-900 md:hidden">Жекшемби | 1 7 : 0 0</p>
+            <h2 class="invitation_title text-2xl uppercase font-display pb-2 text-rose-900 md:hidden">Адрес</h2>
+            <p class="invitation_text font-display uppercase px-4 pb-2 text-rose-900 md:hidden">Бишкек шаары ул.7 апреля 174/1 “Асман» рестораны</p>
+            <a class="mt-5 mb-5 p-2 bg-rose-800 text-white rounded-sm active:bg-red-900 font-display" href="https://goo.gl/maps/AxHaU48FXRk6Wqoe6">Картадан көрүү</a>
+            <p class="invitation_text font-display uppercase text-rose-900">Той ээлери: Кайып жана Бактыгүл</p>
+        </div>
+    </div>
+
+    <script src="/js/invitation-script.js"></script>
+</body>
+</html>
